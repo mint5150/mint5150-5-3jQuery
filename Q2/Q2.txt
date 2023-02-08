@@ -1,0 +1,5 @@
+【jQuery】シンプルなモーダルウィンドウの実装方法
+https://recooord.org/jquery-modal-window/
+
+【jQuery】モーダルウィンドウの作り方を解説（コピペ可）
+https://pengi-n.co.jp/blog/modalwindow/

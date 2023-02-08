@@ -1,0 +1,14 @@
+【JavaScrip】フォーム要素の値を設定・取得する【forms】
+https://into-the-program.com/forms/
+
+jQueryでフォームの値を取得する方法をまとめておくので、コピペでご利用ください。
+https://ginpen.com/2012/05/21/how-to-get-values-from-form-with-jquery/
+
+フォーム要素からの入力値を取得するには？（val）
+https://www.buildinsider.net/web/jqueryref/048
+
+複数のselectボックスの内容を連結するをご教示ください。
+https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q1394087188
+
+jQueryでselectタグの値やテキストを取得する
+https://www.flatflag.nir87.com/select-2-1240

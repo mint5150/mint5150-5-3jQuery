@@ -1,0 +1,35 @@
+ajax()：ajaxメソッド(成功はdone、失敗はfail)による非同期通信
+http://karashidaimyojin.com/jquery/ajax-ajax/
+
+$.ajax()
+https://js.studio-kingdom.com/jquery/ajax/ajax
+
+式と演算子
+https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Operators
+
+A ? b :cの構文の意味を教えてください。
+https://teratail.com/questions/293395
+
+実践jQuery講座 Ajaxの実装方法
+https://inomacreate.com/jquery-ajax-webapi/
+
+第1回　まずは実装してみよう
+https://gihyo.jp/dev/feature/01/jquery-ajax/0001
+
+一般的なAjax通信を実装するには？（$.ajax）
+https://www.buildinsider.net/web/jqueryref/059
+
+$.ajax()
+https://js.studio-kingdom.com/jquery/ajax/ajax
+
+jQueryでAjax通信を行う方法とは？Ajax通信を正しく使いこなそう！
+https://www.fenet.jp/dotnet/column/%e8%a8%80%e8%aa%9e%e3%83%bb%e7%92%b0%e5%a2%83/7601/
+
+jQueryのAjax関数を使ってJavaScriptで非同期通信を行う
+https://segakuin.com/javascript/jquery/global/ajax.html
+
+はじめてのAjax(jQuery) 2018年版
+https://qiita.com/zakiyamaaaaa/items/bdda422db2ccbaea60d9
+
+JavaScriptでAjaxを使う方法。使用例や利用方法を解説
+https://job-support.ne.jp/blog/javascript/howto-ajax

@@ -1,0 +1,8 @@
+【jQuery】タブメニューの簡単な作り方をコード付きで解説（コピペ可）
+https://pengi-n.co.jp/blog/tabmenu/
+
+jQueryでタブメニューを作ってみよう
+https://zero-plus.io/media/javascript/tab-menu-practice/
+
+【コピペOK！】jQueryを使ったタブで切り替え出来るメニューの作り方
+https://junpei-sugiyama.com/tab-menu/
