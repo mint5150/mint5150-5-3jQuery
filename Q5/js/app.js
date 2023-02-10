@@ -1,7 +1,7 @@
 $(function(){
   $('.dropdwn li').hover(function(){
-      $("ul:not(:animated)", this).slideDown();
+      $("ul:not(:animated)", this).stop().slideDown();
   }, function(){
-      $("ul.dropdwn_menu",this).slideUp();
+      $("ul.dropdwn_menu",this).stop().slideUp();
   });
 });

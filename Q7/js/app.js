@@ -13,7 +13,7 @@ console.log('性別');
 console.log($('[name="gender"]:checked').val());
 
 console.log('職業');
-let occupation = $('.occupation option:selected').text();
+const occupation = $('.occupation option:selected').text();
 console.log(occupation);
 
 console.log('アカウント名');

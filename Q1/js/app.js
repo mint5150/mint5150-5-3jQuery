@@ -18,20 +18,14 @@ $("#q3").fadeOut(3000);
 
 ////idにq4がついている要素（ボタン）がクリックされたら
 $("#q4").on('click', function () {
-//idにq3がついている要素（ボタン）のpadding,width,font-sizeを変更
+//idにq4がついている要素（ボタン）のpadding,width,font-sizeを変更
 $("#q4").css({'padding': '50px', 'width': '300px', 'font-size': '20px'});
 });
 
 ////idにq5がついている要素（ボタン）がクリックされたら
 $("#q5").on('click', function () {
-//idにq3がついている要素（ボタン）の前に追加
-$("#q5").before("before");
-//idにq3がついている要素（ボタン）中の前に追加
-$("#q5").prepend("prepend");
-//idにq3がついている要素（ボタン）中の後に追加
-$("#q5").append("append");
-//idにq3がついている要素（ボタン）の後に追加
-$("#q5").after("after");
+//idにq5がついている要素（ボタン）の前,中の前,中の後,後に追加
+$("#q5").before("before").prepend("prepend").append("append").after("after");
 });
 
 ////idにq6がついている要素（ボタン）がクリックされたら
@@ -46,9 +40,9 @@ $("#q6").animate({
 ////idにq7がついている要素（ボタン）がクリックされたら
 $("#q7").on('click', function () {
   //idにq7がついている要素（ボタン）のid属性を取得して変数q7_idに格納
-  var q7_id = $(this).attr('id', 'text');
+  let q7id = $(this).attr('id', 'text');
   //q7_idをコンソールに表示
-  console.log(q7_id[0]);
+  console.log(q7id[0]);
 });
 
 
