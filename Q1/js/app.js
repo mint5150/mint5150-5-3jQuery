@@ -39,10 +39,10 @@ $("#q6").animate({
 
 ////idにq7がついている要素（ボタン）がクリックされたら
 $("#q7").on('click', function () {
-  //idにq7がついている要素（ボタン）のid属性を取得して変数q7_idに格納
-  let q7id = $(this).attr('id', 'text');
+  //idにq7がついている要素（ボタン）のid属性を取得して変数btnNodeに格納
+  const btnNode = $(this).attr('id', 'text');
   //q7_idをコンソールに表示
-  console.log(q7id[0]);
+  console.log(btnNode[0]);
 });
 
 
@@ -68,7 +68,7 @@ alert(index);
 ////idにq10がついている要素（ボタン）のliがクリックされたら
 $("#q10 li").on('click', function () {
 //変数indexにクリックしたインデックス番号を格納
-let index = $(this).index();
+const index = $(this).index();
 //#q11 liのクリックしたindex番号に対応する要素にlarge-textクラスを付与
 $("#q11 li").eq(index).addClass("large-text");
 });
