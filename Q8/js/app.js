@@ -1,5 +1,5 @@
 //変数$jscompに$jscomp又は空の値を代入する
-var $jscomp = $jscomp || {};
+let $jscomp = $jscomp || {};
 //変数$jscomp.scopeに空の値を代入する
 $jscomp.scope = {};
 //変数$jscomp.createTemplateTagFirstArgにfunction (a) { return a.raw = a };を代入する
