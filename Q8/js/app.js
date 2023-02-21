@@ -1,15 +1,3 @@
-//変数$jscompに$jscomp又は空の値を代入する
-var $jscomp = $jscomp || {};
-//変数$jscomp.scopeに空の値を代入する
-$jscomp.scope = {};
-//変数$jscomp.createTemplateTagFirstArgにfunction (a) { return a.raw = a };を代入する
-$jscomp.createTemplateTagFirstArg = function (a) { return a.raw = a };
-//変数$jscomp.createTemplateTagFirstArgWithRawにfunction (a, d) { a.raw = d;を代入する
-$jscomp.createTemplateTagFirstArgWithRaw = function (a, d) { a.raw = d;
-//戻り値aを実行する
-  return a };
-
-//----↑ここまでIEに対応するための記述--------------------------------------------------------
 
 //関数を実行する
 $(function () {
