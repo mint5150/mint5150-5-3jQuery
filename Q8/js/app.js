@@ -66,25 +66,39 @@ $(function () {
     }
   };
 
-    //変数pageに1を代入する、変数lastSearchInputに空の値を代入する
-    let page = 1, lastSearchInput = "";
-  //.search-btnがクリックされたらfunction () {var currentSearchInput = $("#search-input").val()を実行する
-  $(".search-btn").on("click", function () {var currentSearchInput = $("#search-input").val();
+  //変数pageに1を代入する
+  let page = 1;
+  //変数lastSearchInputに空の値を代入する
+  let lastSearchInput = "";
+
+  //.search-btnがクリックされたらfunction () {let currentSearchInput = $("#search-input").val()を実行する
+  $(".search-btn").on("click", function () {
+    let currentSearchInput = $("#search-input").val();
   //もし変数currentSearchInputが変数lastSearchInputと同一でないなら
   if(currentSearchInput !== lastSearchInput) {
-    //変数pageに1を代入する
-    //$(".lists").empty()を実行する
-    //変数lastSearchInputにcurrentSearchInputを代入する
-    (page = 1, $(".lists").empty(), lastSearchInput = currentSearchInput);
+    (
+      //変数pageに1を代入する
+      page = 1,
+      //$(".lists").empty()を実行する
+      $(".lists").empty(),
+      //変数lastSearchInputにcurrentSearchInputを代入する
+      lastSearchInput = currentSearchInput
+    );
   //もし変数currentSearchInputが変数lastSearchInputと同一なら
   } else {
     //変数pageに1を加える
     page++;
   }
+
   //Ajaxリクエストを送信するオプションをキーと値のペアで指定する
-  //成功なら(function (data) { showResult(data["@graph"])
-  //失敗ならfunction (jqXHR) {$(".lists").empty();
-    $.ajax({url: "https://ci.nii.ac.jp/books/opensearch/search?title=" + currentSearchInput + "&format=json&p=" + page + "&count=20", method: "GET"}).done(function (data) { showResult(data["@graph"]) }).fail(function (jqXHR) {$(".lists").empty();
+  $.ajax({url: "https://ci.nii.ac.jp/books/opensearch/search?title=" + currentSearchInput + "&format=json&p=" + page + "&count=20", method: "GET"})
+    //成功なら(function (data) { showResult(data["@graph"])
+    .done(function (data) { 
+      showResult(data["@graph"]) 
+    })
+    //失敗ならfunction (jqXHR) {$(".lists").empty();
+    .fail(function (jqXHR) {
+      $(".lists").empty();
       //.messageクラスのある要素を削除する
       $(".message").remove();
       //もし0 完全一致 data.statusがtrueなら
@@ -105,6 +119,7 @@ $(function () {
       }
     })
   });
+
   //.reset-btnが押されたらfunction () { を実行する
   $(".reset-btn").on("click", function () {
     //変数pageに1を代入する
@@ -116,7 +131,8 @@ $(function () {
     //.messageの要素を全て削除する
     $(".message").remove();
     //#search-inputの値を空にする
-    $("#search-input").val("") })
+    $("#search-input").val("")
+  })
 });
 
 //そもそもどうしてこういったコードになるのかは経験を積んだ操作設計のエンジニアの仕事

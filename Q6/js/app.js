@@ -14,7 +14,7 @@ $(function () {
     } else {
       $.each(allFood, function (e, foodList) {
         //変数dに変数foodListのデータ属性"category-type"を格納する
-        let eachFoodList = $(foodList).data("category-type");
+        const eachFoodList = $(foodList).data("category-type");
         //変数bが変数dと等しければ変数aを表示、等しくなければ非表示
         if(selectVal === eachFoodList){
           $(foodList).show();
