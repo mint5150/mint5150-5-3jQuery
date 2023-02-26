@@ -93,8 +93,8 @@ $(function () {
   //Ajaxリクエストを送信するオプションをキーと値のペアで指定する
   $.ajax({url: "https://ci.nii.ac.jp/books/opensearch/search?title=" + currentSearchInput + "&format=json&p=" + page + "&count=20", method: "GET"})
     //成功なら(function (data) { showResult(data["@graph"])
-    .done(function (data) { 
-      showResult(data["@graph"]) 
+    .done(function (data) {
+      showResult(data["@graph"])
     })
     //失敗ならfunction (jqXHR) {$(".lists").empty();
     .fail(function (jqXHR) {
