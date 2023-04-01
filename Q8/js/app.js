@@ -5,10 +5,10 @@ $(function () {
   //search-btnのクリックイベント
   $(".search-btn").on("click", function () {
     let currentSearchInput = $("#search-input").val();
-  if(currentSearchInput !== lastSearchInput) {
+  if(currentSearchInput === lastSearchInput) {
       page = 1,
-      $(".lists").empty(),
-      lastSearchInput = currentSearchInput
+      $(".lists").empty();
+      //lastSearchInput = currentSearchInput
   } else {
     page++;
   }
@@ -18,8 +18,8 @@ $(function () {
     .done(function (data) {
       showResult(data["@graph"])
     })
-    .fail(function (jqXHR) {
-      showError(jqXHR)
+    .fail(function (jqXhr) {
+      showError(jqXhr)
     })
   });
 
@@ -34,35 +34,48 @@ $(function () {
         } else {
           html += "";
         }
+
         html += "</p><p>";
+
+        let creator = item['dc:creator'] ? item["dc:creator"] : "";
+        let publisher = item["dc:publisher"] ? item["dc:publisher"][0] : "";
+        let url = '</p><a href="' + (item.link["@id"] + '" target="_blank">'+item.link["@id"]+'</a></div></li>');
+        let htmlResult = html + creator + "</p><p>" + publisher + url;
+
+        /*
         if (item['dc:creator']) {
           html += item["dc:creator"];
         } else {
           html += "";
         }
+
         html += "</p><p>";
         if (item["dc:publisher"]) {
           html += item["dc:publisher"][0];
         } else {
           html += "";
         }
+
         html += '</p><a href="';
         + (item.link["@id"] +'" target="_blank"></a></div></li>');
-        $(".lists").prepend(html)
+        */
+        $(".lists").prepend(htmlResult)
       })
+
     } else {
       $(".lists").before('<div class="message"></div>');
     }
   };
 
   //通信失敗処理
-  function showError(jqXHR) {
+  function showError(jqXhr) {
   $(".lists").empty();
   $(".message").remove();
-  if (0 === jqXHR.status) {
+  console.log("jqXHR:" + jqXhr.status);
+  if (0 === jqXhr.status) {
       $(".lists").before('<div class="message">正常に通信できませんでした。<br>インターネットの接続の確認をしてください。</div>');
     } else {
-      if (400 === jqXHR.status) {
+      if (400 === jqXhr.status) {
         $(".lists").before('<div class="message">検索キーワードが有効ではありません。<br>1文字以上で検索して下さい。</div>');
       } else {
         $(".lists").before('<div class="message">予期せぬエラーが起きました。<br>再読み込みを行ってください。</div>');
