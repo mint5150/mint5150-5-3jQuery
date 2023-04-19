@@ -1,7 +1,7 @@
 const origin = req.headers.origin;
 if (
   origin === process.env.FRONTEND_ORIGIN
-  || /^https:\/\/.+\.front-end\.com$/.test(origin)
+  || /^https:\/\/.+\.ci.nii.ac\.jp$/.test(origin)
 ) {
   res.header('Access-Control-Allow-Origin', origin);
   res.header('Access-Control-Allow-Headers', 'X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept');
