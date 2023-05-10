@@ -1,4 +1,4 @@
-const origin = req.headers.origin;
+/*const origin = req.headers.origin;
 if (
   origin === process.env.FRONTEND_ORIGIN
   || /^https:\/\/.+\.ci.nii.ac\.jp$/.test(origin)
@@ -6,7 +6,7 @@ if (
   res.header('Access-Control-Allow-Origin', origin);
   res.header('Access-Control-Allow-Headers', 'X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept');
   res.header('Access-Control-Allow-Methods', 'PUT, DELETE, OPTIONS');
-}
+}*/
 
 $(function () {
   let page = 1;
@@ -90,7 +90,6 @@ $(function () {
         $(".lists").before('<div class="message">予期せぬエラーが起きました。<br>再読み込みを行ってください。</div>');
       }
     }
-    console.log("jqXHR:" + jqXhr.status);
   }
 
   //リセット処理
