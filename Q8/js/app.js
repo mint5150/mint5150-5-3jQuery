@@ -11,50 +11,40 @@ if (
 $(function () {
   let page = 0;
   let lastSearchInput = "";
-  console.log("1");
 
   //search-btnのクリックイベント
   $(".search-btn").on("click", function () {
     let currentSearchInput = $("#search-input").val();
-    console.log("2");
 
   if(currentSearchInput === lastSearchInput) {
       page = 0,
       $(".lists").empty();
-      console.log("3");
   } else {
     page++;
-    console.log("4");
   }
 
   //ajax通信
   $.ajax({url: "https://ci.nii.ac.jp/books/opensearch/search?title=" + currentSearchInput + "&format=json&p=" + page + "&count=20", method: "GET"})
     .done(function (data) {
       showResult(data["@graph"])
-      console.log("5");
     })
     .fail(function (jqXhr) {
       showError(jqXhr)
-      console.log("6");
     })
   });
 
   //通信成功処理
   function showResult(result) {
-    console.log(result);
-    if(result[0].items.length > 0) {
-      console.log(result[0].items);
+    console.log(result[0]["opensearch:totalResults"]);
+    if(result[0]["opensearch:totalResults"]> 0) {
       $.each(result[0].items, function (index, item) {
         let html = '<li class="lists-item"><div class="list-inner"><p>タイトル：';
         if (item.title) {
           html += item.title;
-          console.log("9");
         } else {
           html += "";
-          console.log("10");
         }
         html += "</p><p>";
-        console.log("11");
 
         let creator = item['dc:creator'] ? item["dc:creator"] : "不明";
         let publisher = item["dc:publisher"] ? item["dc:publisher"][0] : "不明";
@@ -62,19 +52,10 @@ $(function () {
         const htmlResult = html + "著者：" + creator + "</p><p>" + "出版社：" + publisher + url;"</p>";
 
         $(".lists").prepend(htmlResult)
-        console.log("12");
       })
     } else {
-      alert("検索ヒットがありませんでした。");
       $(".lists").before('<div class="message">検索ヒットがありませんでした。</div>');
-      console.log("13");
     }
-
-    if(result[0].items = null){
-      alert("検索ヒットがありませんでした。");
-      console.log("14");
-    }
-    console.log("15");
   };
 
   //通信失敗処理
