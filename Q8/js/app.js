@@ -17,7 +17,7 @@ $(function () {
     let currentSearchInput = $("#search-input").val();
 
   if(currentSearchInput === lastSearchInput) {
-      page = 0,
+      page = 0
       $(".lists").empty();
   } else {
     page++;
@@ -35,26 +35,23 @@ $(function () {
 
   //通信成功処理
   function showResult(result) {
-    console.log(result[0]["opensearch:totalResults"]);
-    if(result[0]["opensearch:totalResults"]> 0) {
+    $(".lists").empty();
+    $(".message").remove();
+    if(result[0]["opensearch:totalResults"] > 0) {
       $.each(result[0].items, function (index, item) {
-        let html = '<li class="lists-item"><div class="list-inner"><p>タイトル：';
-        if (item.title) {
-          html += item.title;
-        } else {
-          html += "";
-        }
-        html += "</p><p>";
-
-        let creator = item['dc:creator'] ? item["dc:creator"] : "不明";
-        let publisher = item["dc:publisher"] ? item["dc:publisher"][0] : "不明";
+        const title = item.title ? item.title : "不明";
+        const creator = item['dc:creator'] ? item["dc:creator"] : "不明";
+        const publisher = item["dc:publisher"] ? item["dc:publisher"][0] : "不明";
         let url = '</p><a href="' + (item.link["@id"] + '" target="_blank">書籍情報</a></div></li>');
-        const htmlResult = html + "著者：" + creator + "</p><p>" + "出版社：" + publisher + url;"</p>";
+        const htmlResult = '<li class="lists-item"><div class="list-inner"><p>タイトル：' + title + "</p><p>" + "著者：" + creator + "</p><p>" + "出版社：" + publisher + url;"</p>";
 
         $(".lists").prepend(htmlResult)
       })
     } else {
-      $(".lists").before('<div class="message">検索ヒットがありませんでした。</div>');
+      $(".lists").empty();
+      $(".message").remove();
+      page = 0
+      $(".lists").before('<div class="message">検索結果が見つかりませんでした。<br>別のキーワードで検索して下さい。</div>');
     }
   };
 
