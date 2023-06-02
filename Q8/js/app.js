@@ -38,9 +38,8 @@ $(function () {
         $(".lists").prepend(htmlResult)
       })
     } else {
-      $(".lists").empty();
-      $(".message").remove();
       page = 0
+      $(".message").remove();
       $(".lists").before('<div class="message">検索結果が見つかりませんでした。<br>別のキーワードで検索して下さい。</div>');
     }
   };
@@ -61,10 +60,10 @@ $(function () {
   }
   //リセット処理
   $(".reset-btn").on("click", function () {
-    page = 1;
+    page = 0;
     lastSearchInput = "";
     $(".lists").empty();
     $(".message").remove();
-    $("#search-input").val("")
+    $("#search-input").val("");
   })
 });
