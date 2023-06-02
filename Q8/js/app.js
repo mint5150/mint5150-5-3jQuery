@@ -1,13 +1,3 @@
-/*const origin = req.headers.origin;
-if (
-  origin === process.env.FRONTEND_ORIGIN
-  || /^https:\/\/.+\.ci.nii.ac\.jp$/.test(origin)
-) {
-  res.header('Access-Control-Allow-Origin', origin);
-  res.header('Access-Control-Allow-Headers', 'X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept');
-  res.header('Access-Control-Allow-Methods', 'PUT, DELETE, OPTIONS');
-}*/
-
 $(function () {
   let page = 0;
   let lastSearchInput = "";
