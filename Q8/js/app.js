@@ -28,9 +28,9 @@ $(function () {
     $(".message").remove();
 
     if(result[0]["opensearch:totalResults"] > 0) {
-      if (page === 0) {
+    /*if (page === 0) {
         $(".lists").empty();
-      }
+      }*/
       $.each(result[0].items, function (index, item) {
         const title = item.title ? item.title : "不明";
         const creator = item['dc:creator'] ? item["dc:creator"] : "不明";
@@ -42,9 +42,9 @@ $(function () {
       })
 
     } else {
-      page = 0;
+    /*page = 0;
       $(".lists").empty();
-      $(".message").remove();
+      $(".message").remove();*/
       $(".lists").before('<div class="message">検索結果が見つかりませんでした。<br>別のキーワードで検索して下さい。</div>');
     }
   };
