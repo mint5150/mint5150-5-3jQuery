@@ -34,7 +34,6 @@ $(function () {
 
         $(".lists").prepend(htmlResult)
       })
-
     } else {
       $(".lists").before('<div class="message">検索結果が見つかりませんでした。<br>別のキーワードで検索して下さい。</div>');
     }
