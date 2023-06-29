@@ -1,10 +1,9 @@
 $(function () {
   let page = 0;
-  let lastSearchInput = "";
+  const lastSearchInput = "";
 
-  //search-btnのクリックイベント
   $(".search-btn").on("click", function () {
-    let currentSearchInput = $("#search-input").val();
+    const currentSearchInput = $("#search-input").val();
 
   if(currentSearchInput === lastSearchInput) {
       page = 0
@@ -13,7 +12,6 @@ $(function () {
     page++;
   }
 
-  //ajax通信
   $.ajax({url: "https://ci.nii.ac.jp/books/opensearch/search?title=" + currentSearchInput + "&format=json&p=" + page + "&count=20", method: "GET"})
     .done(function (data) {
       showResult(data["@graph"])
@@ -23,14 +21,10 @@ $(function () {
     })
   });
 
-  //通信成功処理
   function showResult(result) {
     $(".message").remove();
 
     if(result[0]["opensearch:totalResults"] > 0) {
-    /*if (page === 0) {
-        $(".lists").empty();
-      }*/
       $.each(result[0].items, function (index, item) {
         const title = item.title ? item.title : "不明";
         const creator = item['dc:creator'] ? item["dc:creator"] : "不明";
@@ -42,14 +36,10 @@ $(function () {
       })
 
     } else {
-    /*page = 0;
-      $(".lists").empty();
-      $(".message").remove();*/
       $(".lists").before('<div class="message">検索結果が見つかりませんでした。<br>別のキーワードで検索して下さい。</div>');
     }
   };
 
-  //通信失敗処理
   function showError(ajaxError) {
   $(".lists").empty();
   $(".message").remove();
@@ -63,7 +53,7 @@ $(function () {
       }
     }
   }
-  //リセット処理
+
   $(".reset-btn").on("click", function () {
     page = 0;
     lastSearchInput = "";
