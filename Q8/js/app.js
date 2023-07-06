@@ -1,16 +1,18 @@
 $(function () {
   let page = 0;
-  const lastSearchInput = "";
+  let lastSearchInput = "";
 
   $(".search-btn").on("click", function () {
     const currentSearchInput = $("#search-input").val();
 
-  if(currentSearchInput === lastSearchInput) {
-      page = 0
+  if(currentSearchInput !== lastSearchInput) {
       $(".lists").empty();
+      page = 1
   } else {
     page++;
   }
+
+  lastSearchInput = currentSearchInput;
 
   $.ajax({url: "https://ci.nii.ac.jp/books/opensearch/search?title=" + currentSearchInput + "&format=json&p=" + page + "&count=20", method: "GET"})
     .done(function (data) {
